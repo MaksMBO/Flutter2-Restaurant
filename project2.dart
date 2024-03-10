@@ -92,23 +92,22 @@ class Restaurant with ValidationMixin {
     return Restaurant(name, menu, address, email, openFrom, openTo);
   }
 
-  String get name => _name;
   set name(String name) {
     validateName(name);
     _name = name;
   }
 
-  Map<String, double> get displayMenu => _menu.menu;
+  Map<String, double> get menu => _menu.menu;
 
-  String get nameRestaurant => _name;
+  String get name => _name;
 
-  String get addressRestaurant => _address;
+  String get address => _address;
 
-  String get emailRestaurant => _email ?? "Немає вказаного email";
+  String get email => _email ?? "Немає вказаного email";
 
-  String get openFromRestaurant => _openFrom;
+  String get openFrom => _openFrom;
 
-  String get openToRestaurant => _openTo;
+  String get openTo => _openTo;
 }
 
 class Menu with ValidationMixin {
@@ -163,12 +162,12 @@ void main() {
     sortRestaurantsByName(restaurantList);
 
     restaurantList.forEach((restaurant) {
-      print("**${restaurant.nameRestaurant}**");
-      print("Меню".padRight(16) + "${restaurant.displayMenu}");
-      print("Адреса".padRight(16) + "${restaurant.addressRestaurant}");
-      print("Email".padRight(16) + "${restaurant.emailRestaurant}");
-      print("Відкритий з".padRight(16) + "{restaurant.openFromRestaurant}");
-      print("Зачиняється в".padRight(16) + "${restaurant.openToRestaurant} \n");
+      print("**${restaurant.name}**");
+      print("Меню".padRight(16) + "${restaurant.menu}");
+      print("Адреса".padRight(16) + "${restaurant.address}");
+      print("Email".padRight(16) + "${restaurant.email}");
+      print("Відкритий з".padRight(16) + "${restaurant.openFrom}");
+      print("Зачиняється в".padRight(16) + "${restaurant.openTo} \n");
     });
   } catch (e) {
     print("Помилка: $e");
